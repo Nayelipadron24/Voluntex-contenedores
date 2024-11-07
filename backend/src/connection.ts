@@ -1,11 +1,12 @@
 import mysql from 'promise-mysql';
 
 const pool = mysql.createPool({
-    host: 'localhost',
+    host: 'mysql-db',
     port: 3306,
-    user: 'root',
-    password: '123456',
+    user: 'admin',
+    password: 'admin',
     database: 'voluntex',
+    
 });
 
 pool.getConnection()

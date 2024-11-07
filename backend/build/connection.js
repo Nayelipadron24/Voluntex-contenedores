@@ -5,15 +5,17 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const promise_mysql_1 = __importDefault(require("promise-mysql"));
 const pool = promise_mysql_1.default.createPool({
-    host: 'localhost',
+    host: 'mysql-db',
     port: 3306,
-    user: 'root',
-    password: '123456',
+    user: 'admin',
+    password: 'admin',
     database: 'voluntex',
 });
 pool.getConnection()
     .then(connection => {
     pool.releaseConnection(connection);
     console.log('DB is Connected');
+}, onrejected => {
+    console.log(onrejected)
 });
 exports.default = pool;
